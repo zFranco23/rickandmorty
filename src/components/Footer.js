@@ -2,12 +2,16 @@ import { makeStyles } from '@material-ui/core';
 import React from 'react'
 
 
-const useStyles=makeStyles(({setPagination})=>({
+const useStyles=makeStyles((theme)=>({
     footer:{
         padding:"1rem 4rem",
         display:"flex",
         justifyContent:"space-between",
         alignItems:"center",
+        flexWrap:"wrap",
+        [theme.breakpoints.down("xs")]:{
+            flexDirection:"column",
+        }
     },
     btn:{
         cursor:"pointer",
@@ -19,6 +23,9 @@ const useStyles=makeStyles(({setPagination})=>({
         "&:hover":{
             transform:"translateY(-1px)",
             backgroundColor:"#ffc600",
+        },
+        [theme.breakpoints.down("xs")]:{
+            marginTop:"1rem",
         }
     }
 }))
@@ -27,11 +34,11 @@ function Footer({setPagination}) {
     const classes=useStyles();
 
     const handleBack = () =>{
-        setPagination(pag => pag===0 ? setPagination(0) : setPagination(pag-1))
+        setPagination(pag => pag===1 ? setPagination(4) : setPagination(pag-1))
     }
 
     const handleForward= ()=>{
-        setPagination(pag => pag===3 ? setPagination(0) : setPagination(pag+1))
+        setPagination(pag => pag===4 ? setPagination(1) : setPagination(pag+1))
     }
 
 

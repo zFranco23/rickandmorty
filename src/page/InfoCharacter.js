@@ -1,8 +1,9 @@
 import { makeStyles } from '@material-ui/core';
-import React, {useState } from 'react'
+import React from 'react'
+import { useParams } from 'react-router'
 import Appbar from '../components/Appbar';
-import Search from '../components/Search';
 import Footer from '../components/Footer';
+
 
 const useStyles=makeStyles((theme)=>({
     root:{
@@ -12,19 +13,16 @@ const useStyles=makeStyles((theme)=>({
         justifyContent:"space-between",
     }
 }))
-function Home() {
 
+function InfoCharacter() {
     const classes=useStyles();
-    const [pagination,setPagination]=useState(1);
-
-
+    const {name}= useParams();
     return (
         <div className={classes.root}>
             <Appbar />
-            <Search pagination={pagination}/>
-            <Footer setPagination={setPagination}/>
+            <Footer />
         </div>
     )
 }
 
-export default Home
+export default InfoCharacter

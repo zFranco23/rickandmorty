@@ -1,32 +1,45 @@
 import { Container, Grid, makeStyles } from '@material-ui/core'
-import React, { useEffect } from 'react'
-import { useFetchData } from '../hooks/useFetchData'
+import React from 'react'
+import { Link } from 'react-router-dom';
 import Character from './Character';
 
-import Loader from "react-loader-spinner";
+
 
 
 const useStyles=makeStyles((theme)=>({
     container:{
-        maxWidth:"100%",
+        width:"90%",
+        [theme.breakpoints.down("xs")]:{
+            width:"100%",
+        }
+    },
+    center:{
+        display:"flex",
+        alignItems:"center",
+        justifyContent:"center",
+    },
+    link:{
+        textDecoration:"none",
     }
 }))
-function SearchResults({pagination}) {
+function SearchResults({characters}) {
     
     
-    const {data : characters,loading} = useFetchData();
+    /* const {data : characters,loading} = useFetchData(); */
     const classes=useStyles();
 
     return (
         <Container className={classes.container}>
-        <Grid container spacing={3}>
-                {loading && <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} /> }
+        <Grid container spacing={3} className={classes.center}>
                 {characters?.length>0 && characters.map((character,i)=>(
                     <Grid key={i} item xs={12} sm={6} md={4}>
-                        <Character
-                            key={character.id}
-                            {...character}
-                        />
+                        <Link className={classes.link} to={`/${encodeURI(character.name)}`}>
+                            <Character
+                                key={character.id}
+                                {...character}
+                            />
+                        </Link>
+                        
                     </Grid>
                 ))}
 

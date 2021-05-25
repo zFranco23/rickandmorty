@@ -11,7 +11,7 @@ export const useFetchData = () => {
     useEffect(()=>{
         fetchDataAPI()
             .then(res => setState({
-                data: [res[0],res[1],res[2],res[3],res[4],res[5]],
+                data: res,
                 loading: false,
             }));
     },[])

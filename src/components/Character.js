@@ -6,16 +6,20 @@ const useStyles=makeStyles((theme)=>({
         cursor:"pointer",
         borderRadius:"6px",
         boxShadow:"4px 5px #d9e5d6",
-        transition:"0.3s ease-in-out",
+        transition:"all 0.5s ease-in-out",
         "&:hover":{
             transform:"scale(1.05)"
         }
     },
     container:{
+        borderRadius:"6px",
+        position:"relative",
         display:"flex",
         backgroundColor:"#1f2937",
     },
     image:{
+        borderBottomLeftRadius:"6px",
+        borderTopLeftRadius:"6px",
         width:"45%",
     },
     text:{
@@ -30,11 +34,27 @@ const useStyles=makeStyles((theme)=>({
     },
     details:{
         padding:"1rem",
+        width:"100%",
+    },
+    alive:{
+        fontSize:"1.5rem",
+        position:"absolute",
+        bottom:"2px",
+        right:"5px",
+        fontFamily:"Shlop,Poppins",
+        color:"lightgreen",
+    },
+    dead:{
+        fontSize:"1.5rem",
+        position:"absolute",
+        bottom:"2px",
+        right:"5px",
+        fontFamily:"Shlop,Poppins",
+        color:"#cb3234",
     }
 }))
 function Character({
     name,
-    species,
     image,
     gender,
     origin,
@@ -60,10 +80,12 @@ function Character({
                     <Typography className={classes.text}>
                         {type}
                     </Typography>
-                    <Typography className={classes.text}>
+                    {status !=="unknown" && <Typography className={classes.text}>
                         {status}
-                    </Typography>
+                    </Typography>}
                 </div>
+                {status==="Alive" && <div className={classes.alive}>Alive</div> }
+                {status==="Dead" && <div className={classes.dead}>Dead</div> }
             </div>
         </div>
     )
