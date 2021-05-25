@@ -1,16 +1,18 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react'
 
+import Fade from 'react-reveal/Fade';
 
 const useStyles=makeStyles((theme)=>({
     footer:{
+        position:"relative",
         padding:"1rem 4rem",
         display:"flex",
         justifyContent:"space-between",
         alignItems:"center",
         flexWrap:"wrap",
         [theme.breakpoints.down("xs")]:{
-            flexDirection:"column",
+            padding:"1rem",
         }
     },
     btn:{
@@ -45,14 +47,17 @@ function Footer({length,setPagination}) {
 
 
     return (
-        <div className={classes.footer}>
-            <div className={classes.btn} onClick={handleBack}>
-                Anterior
+        <Fade left cascade>
+            <div className={classes.footer}>
+                <div className={classes.btn} onClick={handleBack}>
+                    Previous
+                </div>
+                <div className={classes.btn} onClick={handleForward}>
+                    Next
+                </div>
             </div>
-            <div className={classes.btn} onClick={handleForward}>
-                Siguiente
-            </div>
-        </div>
+
+        </Fade>
     )
 }
 

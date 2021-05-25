@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const useStyles=makeStyles((theme)=>({
     appbar:{
         margin:0,
-        background:"#1f2937"
+        background:"none"
     },
     toolbar:{
         margin:"0.5rem 0",

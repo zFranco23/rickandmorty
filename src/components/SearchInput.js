@@ -1,6 +1,7 @@
 import { makeStyles} from '@material-ui/core';
 import React from 'react'
 
+import Fade from 'react-reveal/Fade';
 const useStyles=makeStyles((theme)=>({
     container:{
         display:"flex",
@@ -13,10 +14,13 @@ const useStyles=makeStyles((theme)=>({
         marginBottom:"1rem",
     },
     input:{
-        fontSize:"1rem",
-        fontFamily:"Poppins",
+        padding:"0.5rem",
+        fontSize:"1.8rem",
+        fontFamily:"Shlop",
         borderRadius:"5px",
-        borderColor:"#333333"
+        borderColor:"#f2f2f2",
+        color:"#F2F2F2",
+        background:"none",
     }
 }))
 function SearchInput({setPagination,handleSearch,search,setSearch,setSearching}) {
@@ -38,16 +42,20 @@ function SearchInput({setPagination,handleSearch,search,setSearch,setSearching})
         
     }
     return (
+        <Fade>
         <form onSubmit={handleSubmit} className={classes.container}>
-            <input
-                
-                value={search}
-                className={classes.input}
-                type="text"
-                placeholder="Nombre"
-                onChange={handleInput}
-            />
+            
+                <input
+                    value={search}
+                    className={classes.input}
+                    type="text"
+                    placeholder="Name"
+                    onChange={handleInput}
+                />
+
+            
         </form>
+        </Fade>
     )
 }
 

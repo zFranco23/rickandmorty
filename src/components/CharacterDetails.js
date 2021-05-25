@@ -3,10 +3,13 @@ import React, { useEffect, useState } from 'react'
 import Episodes from './Episodes';
 
 
+import Fade from 'react-reveal/Fade'
+import Loader from 'react-loader-spinner';
 
 const useStyles=makeStyles((theme)=>({
     root:{
         marginTop:"3rem",
+        overflow:"hidden",
     },
     containerContent:{
         display:"flex",
@@ -25,13 +28,13 @@ const useStyles=makeStyles((theme)=>({
         marginTop:"1rem",
         textAlign:"center",
         fontFamily:"Shlop",
-        color:"#1f2937",
+        color:"#f2f2f2",
         fontWeight:"700",
     },
     episodes:{
         width:"100%",
         marginLeft:"3rem",
-        borderLeft:"3.5px solid #333333",
+        borderLeft:"3.5px solid #fff",
         padding:"1rem",
         [theme.breakpoints.down("sm")]:{
             border:"none",
@@ -75,14 +78,23 @@ function CharacterDetail({name,id}) {
     return (
         <Container className={classes.root}>
             <div className={classes.containerContent}>
-                    <div className={classes.containerImg}>
-                        <img className={classes.image} src={image} alt={name}/>
-                        <Typography className={classes.name}>{name}</Typography>
-                    </div>
-        
-                    <div className={classes.episodes}>  
-                        {episodes.length>0 && <Episodes episodes={episodes}/>}
-                    </div>
+                    <Fade left>
+                        <div className={classes.containerImg}>
+                            {image.length>0 ? 
+                                <>
+                                <img className={classes.image} src={image} alt={name}/>
+                                    <Typography className={classes.name}>{name}</Typography>
+                                </>
+                            :
+                            <Loader type="Circles" color="#333333" height={80} width={80}/>
+                            }
+                        </div>
+                    </Fade>
+                    <Fade right>
+                        <div className={classes.episodes}>  
+                            <Episodes episodes={episodes}/>
+                        </div>
+                    </Fade> 
             </div>
         </Container>
     )

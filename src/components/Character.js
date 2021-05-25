@@ -1,15 +1,13 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React from 'react'
 
+
+import Fade from 'react-reveal/Fade';
+
 const useStyles=makeStyles((theme)=>({
     card:{
-        cursor:"pointer",
         borderRadius:"6px",
-        boxShadow:"4px 5px #d9e5d6",
-        transition:"all 0.5s ease-in-out",
-        "&:hover":{
-            transform:"scale(1.05)"
-        }
+        boxShadow:"4px 5px gray",    
     },
     container:{
         borderRadius:"6px",
@@ -51,6 +49,12 @@ const useStyles=makeStyles((theme)=>({
         right:"5px",
         fontFamily:"Shlop,Poppins",
         color:"#cb3234",
+    },
+    hov:{
+        transition:"all 0.5s ease-in-out",
+        "&:hover":{
+            transform:"scale(1.04)"
+        }
     }
 }))
 function Character({
@@ -64,30 +68,40 @@ function Character({
 
     const classes=useStyles();
     return (
-        <div className={classes.card}>
-            <div className={classes.container}>
-                <img className={classes.image} src={image} alt={name}/>
-                <div className={classes.details}>
-                    <Typography className={classes.textName}>
-                        {name}
-                    </Typography>
-                    <Typography className={classes.text}>
-                        {gender}
-                    </Typography>
-                    <Typography className={classes.text}>
-                        {origin.name}
-                    </Typography>
-                    <Typography className={classes.text}>
-                        {type}
-                    </Typography>
-                    {status !=="unknown" && <Typography className={classes.text}>
-                        {status}
-                    </Typography>}
+        <div className={classes.hov}>
+
+            <Fade left>
+                <div className={classes.card}>
+                    
+                        <div className={classes.container}>
+                            <img className={classes.image} src={image} alt={name}/>
+                            <div className={classes.details}>
+                                <Typography className={classes.textName}>
+                                    {name}
+                                </Typography>
+                                <Typography className={classes.text}>
+                                    {gender}
+                                </Typography>
+                                <Typography className={classes.text}>
+                                    {origin.name==="unknown" ? "Unknown Origin" : origin.name}
+                                </Typography>
+                                <Typography className={classes.text}>
+                                    {type}
+                                </Typography>
+                                {status !=="unknown" && <Typography className={classes.text}>
+                                    {status}
+                                </Typography>}
+                            </div>
+                            {status==="Alive" && <div className={classes.alive}>Alive</div> }
+                            {status==="Dead" && <div className={classes.dead}>Dead</div> }
+                        </div>
+
+                
                 </div>
-                {status==="Alive" && <div className={classes.alive}>Alive</div> }
-                {status==="Dead" && <div className={classes.dead}>Dead</div> }
-            </div>
+
+            </Fade>
         </div>
+           
     )
 }
 

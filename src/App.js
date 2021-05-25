@@ -1,5 +1,5 @@
-import Home from "./page/Home";
-import InfoCharacter from "./page/InfoCharacter";
+import Home from "./pages/Home";
+import InfoCharacter from "./pages/InfoCharacter";
 
 import {
   BrowserRouter as Router,
