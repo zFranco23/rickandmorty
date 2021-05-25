@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,KACE,QAAS,CACT,SACF,CACA,WACE,iBAAkB,CAClB,sDACF","file":"main.a0b9477c.chunk.css","sourcesContent":["body {\n  margin: 0;\n  padding: 0;\n}\n@font-face {\n  font-family: Shlop;\n  src: url(\"shlop.ttf\");\n}\n\n"]}

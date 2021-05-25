@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/rickandmorty/static/css/main.79ed0b06.chunk.css",
+    "main.css": "/rickandmorty/static/css/main.a0b9477c.chunk.css",
     "main.js": "/rickandmorty/static/js/main.2fbf3107.chunk.js",
     "main.js.map": "/rickandmorty/static/js/main.2fbf3107.chunk.js.map",
     "runtime-main.js": "/rickandmorty/static/js/runtime-main.474f2aeb.js",
@@ -8,13 +8,14 @@
     "static/js/2.fa0d0214.chunk.js": "/rickandmorty/static/js/2.fa0d0214.chunk.js",
     "static/js/2.fa0d0214.chunk.js.map": "/rickandmorty/static/js/2.fa0d0214.chunk.js.map",
     "index.html": "/rickandmorty/index.html",
-    "static/css/main.79ed0b06.chunk.css.map": "/rickandmorty/static/css/main.79ed0b06.chunk.css.map",
-    "static/js/2.fa0d0214.chunk.js.LICENSE.txt": "/rickandmorty/static/js/2.fa0d0214.chunk.js.LICENSE.txt"
+    "static/css/main.a0b9477c.chunk.css.map": "/rickandmorty/static/css/main.a0b9477c.chunk.css.map",
+    "static/js/2.fa0d0214.chunk.js.LICENSE.txt": "/rickandmorty/static/js/2.fa0d0214.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/rickandmorty/static/media/shlop.d4944d69.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.474f2aeb.js",
     "static/js/2.fa0d0214.chunk.js",
-    "static/css/main.79ed0b06.chunk.css",
+    "static/css/main.a0b9477c.chunk.css",
     "static/js/main.2fbf3107.chunk.js"
   ]
 }
