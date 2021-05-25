@@ -49,7 +49,19 @@ const useStyles=makeStyles((theme)=>({
         [theme.breakpoints.down("sm")]:{
             borderBottom:"5px solid #1f2937"
         }
-    }
+    },
+    alive:{
+        textAlign:"center",
+        fontSize:"1.5rem",
+        fontFamily:"Shlop,Poppins",
+        color:"lightgreen",
+    },
+    dead:{
+        textAlign:"center",
+        fontSize:"1.5rem",
+        fontFamily:"Shlop,Poppins",
+        color:"#cb3234",
+    },
 }))
 
 
@@ -59,6 +71,7 @@ function CharacterDetail({name,id}) {
 
     const [image,setImage]=useState([]);
     const [episodes,setEpisodes]=useState([]);
+    const [status,setStatus]=useState([]);
     
 
 
@@ -66,9 +79,10 @@ function CharacterDetail({name,id}) {
     const getData = async () => {
         //Obtener datos del character
         const response=await fetch(`https://rickandmortyapi.com/api/character/${id}`);
-        const {image,episode} = await response.json();
+        const {image,episode,status} = await response.json();
         setImage(image);
         setEpisodes(episode);
+        setStatus(status);
     }
     
     useEffect(()=>{
@@ -81,10 +95,11 @@ function CharacterDetail({name,id}) {
                     <Fade left>
                         <div className={classes.containerImg}>
                             {image.length>0 ? 
-                                <>
-                                <img className={classes.image} src={image} alt={name}/>
-                                    <Typography className={classes.name}>{name}</Typography>
-                                </>
+                                <div>
+                                    <img className={classes.image} src={image} alt={name}/>
+                                    {status==="Alive" && <div className={classes.alive}>Alive</div> }
+                                    {status==="Dead" && <div  className={classes.dead}>Dead</div > }
+                                </div>
                             :
                             <Loader type="Circles" color="#333333" height={80} width={80}/>
                             }

@@ -1,9 +1,9 @@
-import { Container, Grid, makeStyles } from '@material-ui/core'
+import { Container, Grid, makeStyles, Typography } from '@material-ui/core'
 import React from 'react'
 import { Link } from 'react-router-dom';
 import Character from './Character';
 
-
+import Shake from 'react-reveal/Shake';
 
 const useStyles=makeStyles((theme)=>({
     container:{
@@ -19,6 +19,13 @@ const useStyles=makeStyles((theme)=>({
     },
     link:{
         textDecoration:"none",
+    },
+    text:{
+        marginTop:"1rem",
+        color:"red",
+        position:"relative",
+        fontSize:"2rem",
+        fontFamily:"Shlop"
     }
 }))
 function SearchResults({characters}) {
@@ -42,7 +49,10 @@ function SearchResults({characters}) {
                     </Grid>
                 ))
                 :
-                <div>No hay resultados</div>
+                <Shake>
+                    <Typography className={classes.text} >No results</Typography>
+
+                </Shake>
                 
                 }
 

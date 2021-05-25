@@ -88,9 +88,6 @@ function Character({
                                 <Typography className={classes.text}>
                                     {type}
                                 </Typography>
-                                {status !=="unknown" && <Typography className={classes.text}>
-                                    {status}
-                                </Typography>}
                             </div>
                             {status==="Alive" && <div className={classes.alive}>Alive</div> }
                             {status==="Dead" && <div className={classes.dead}>Dead</div> }
