@@ -1,5 +1,5 @@
 import { makeStyles} from '@material-ui/core';
-import React, { useState } from 'react'
+import React from 'react'
 
 const useStyles=makeStyles((theme)=>({
     container:{
@@ -19,24 +19,29 @@ const useStyles=makeStyles((theme)=>({
         borderColor:"#333333"
     }
 }))
-function SearchInput() {
+function SearchInput({setPagination,handleSearch,search,setSearch,setSearching}) {
 
     const classes=useStyles();
 
-    const [name,setName]=useState("");
-
     const handleSubmit= (e)=>{
         e.preventDefault();
+        setPagination(1);
+        setSearching(true);
+        handleSearch(search);
     }
 
     const handleInput = (e) =>{
-        setName(e.target.value);
+        setSearch(e.target.value);
+        if(e.target.value ===""){
+            setSearching(false);
+        }
+        
     }
     return (
         <form onSubmit={handleSubmit} className={classes.container}>
             <input
                 
-                value={name}
+                value={search}
                 className={classes.input}
                 type="text"
                 placeholder="Nombre"

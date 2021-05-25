@@ -16,13 +16,13 @@ function Home() {
 
     const classes=useStyles();
     const [pagination,setPagination]=useState(1);
-
+    const [dataFound,setDataFound]=useState([]);
 
     return (
         <div className={classes.root}>
             <Appbar />
-            <Search pagination={pagination}/>
-            <Footer setPagination={setPagination}/>
+            <Search dataFound={dataFound} setDataFound={setDataFound} setPagination ={setPagination} pagination={pagination}/>
+            <Footer length={dataFound.length} setPagination={setPagination}/>
         </div>
     )
 }

@@ -5,6 +5,7 @@ import {fetchDataAPI} from '../helpers/fetchDataAPI'
 export const useFetchData = () => {
     const [state,setState]=useState({
         data: [],
+        names: [],
         loading: true
     });
 
@@ -12,6 +13,7 @@ export const useFetchData = () => {
         fetchDataAPI()
             .then(res => setState({
                 data: res,
+                names: res.map(el => el.name),
                 loading: false,
             }));
     },[])

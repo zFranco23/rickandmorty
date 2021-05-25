@@ -2,9 +2,9 @@
 //Traer data
 const fetchData= async (url) =>{
     const response= await fetch(url);
-    const {name}= await response.json();
+    const {name,id}= await response.json();
     
-    return name;
+    return {name,id};
 }
 
 export const fetchEpisodesAPI = async (arrayEpisodes) => {
@@ -13,8 +13,6 @@ export const fetchEpisodesAPI = async (arrayEpisodes) => {
         let val= await fetchData(arrayEpisodes[i]);
         arrayData.push(val);
     }
-
-    console.log(arrayData)
     return arrayData;
         
 }

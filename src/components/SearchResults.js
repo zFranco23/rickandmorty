@@ -31,7 +31,7 @@ function SearchResults({characters}) {
     return (
         <Container className={classes.container}>
         <Grid container spacing={3} className={classes.center}>
-                {characters?.length>0 && characters.map((character,i)=>(
+                {characters?.length>0 ? characters.map((character,i)=>(
                     <Grid key={i} item xs={12} sm={6} md={4}>
                         <Link className={classes.link} to={`/${character.name}/${character.id}`}>
                             <Character
@@ -41,7 +41,10 @@ function SearchResults({characters}) {
                         </Link>
                         
                     </Grid>
-                ))}
+                ))
+                :
+                <div>No hay resultados</div>
+            }
 
             </Grid> 
             {/* CAMBIO {pagination} */}

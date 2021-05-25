@@ -15,7 +15,7 @@ const useStyles=makeStyles((theme)=>({
     },
     btn:{
         cursor:"pointer",
-        fontFamily:"Poppins",
+        fontFamily:"Shlop",
         padding:"0.5rem 1.5rem",
         backgroundColor:"#f3ca4c",
         borderRadius:"24px",
@@ -29,16 +29,18 @@ const useStyles=makeStyles((theme)=>({
         }
     }
 }))
-function Footer({setPagination}) {
+function Footer({length,setPagination}) {
     
     const classes=useStyles();
 
     const handleBack = () =>{
-        setPagination(pag => pag===1 ? setPagination(4) : setPagination(pag-1))
+        const max= length===0 ? 4 : Math.ceil(length/6);
+        setPagination(pag => pag===1 ? setPagination(max) : setPagination(pag-1))
     }
 
     const handleForward= ()=>{
-        setPagination(pag => pag===4 ? setPagination(1) : setPagination(pag+1))
+        const max= length===0 ? 4 : Math.ceil(length/6);
+        setPagination(pag => pag===max ? setPagination(1) : setPagination(pag+1))
     }
 
 

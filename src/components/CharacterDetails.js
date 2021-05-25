@@ -24,8 +24,9 @@ const useStyles=makeStyles((theme)=>({
         fontSize:"1.5rem",
         marginTop:"1rem",
         textAlign:"center",
-        fontFamily:"Poppins",
-        fontWeight:"500",
+        fontFamily:"Shlop",
+        color:"#1f2937",
+        fontWeight:"700",
     },
     episodes:{
         width:"100%",
@@ -36,14 +37,6 @@ const useStyles=makeStyles((theme)=>({
             border:"none",
             marginLeft:"0",
             padding:0,
-        }
-    },
-    title:{
-        color:"#82bf45",
-        fontFamily:"Shlop,Poppins",
-        fontSize:"2rem",
-        [theme.breakpoints.down("sm")]:{
-            textAlign:"center",
         }
     },
     containerImg:{
@@ -87,12 +80,8 @@ function CharacterDetail({name,id}) {
                         <Typography className={classes.name}>{name}</Typography>
                     </div>
         
-                    <div className={classes.episodes}>
-                        <Typography className={classes.title}>
-                            Episodes
-                        </Typography>   
+                    <div className={classes.episodes}>  
                         {episodes.length>0 && <Episodes episodes={episodes}/>}
-                        
                     </div>
             </div>
         </Container>
