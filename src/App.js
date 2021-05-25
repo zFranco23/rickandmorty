@@ -5,6 +5,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 
 } from 'react-router-dom';
 
@@ -15,6 +16,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path= "/:name/:id" component = {InfoCharacter} />
+        <Redirect exact to="/" />
       </Switch>
     </Router>   
   )
