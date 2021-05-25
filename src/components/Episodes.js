@@ -96,7 +96,7 @@ function Episodes({episodes}) {
                                     </Typography>     
                             ))}
                         </Grid>}
-                        {reduceArray(temp.length/4,temp.length/2).length>0 && <Grid  className={classes.grid} item xs={6} sm={6} md={3}>
+                        {reduceArray(temp.length/4,temp.length/2).length>0 && <Grid style={{margin:"auto"}}  className={classes.grid} item xs={6} sm={6} md={3}>
                             {reduceArray(temp.length/4,temp.length/2).map((episode,i)=>(
                                     <Typography key={i} className={classes.episode} gutterBottom>
                                     EP {`${temp[temp.indexOf(episode)].id} | ${temp[temp.indexOf(episode)].name}`}

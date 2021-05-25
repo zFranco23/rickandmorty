@@ -29,7 +29,6 @@ const useStyles=makeStyles((theme)=>({
         textAlign:"center",
         fontFamily:"Shlop",
         color:"#f2f2f2",
-        fontWeight:"700",
     },
     episodes:{
         width:"100%",
@@ -97,6 +96,7 @@ function CharacterDetail({name,id}) {
                             {image.length>0 ? 
                                 <div>
                                     <img className={classes.image} src={image} alt={name}/>
+                                    <div className={classes.name}>{name}</div>
                                     {status==="Alive" && <div className={classes.alive}>Alive</div> }
                                     {status==="Dead" && <div  className={classes.dead}>Dead</div > }
                                 </div>
