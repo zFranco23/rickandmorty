@@ -27,9 +27,6 @@ function Search({pagination}) {
     const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage;
     const currentCharacters = characters.slice(indexOfFirstCharacter,indexOfLastCharacter);
 
-
-
-
     return (
         <div className={classes.root}>
             {loading ? <Loader type="ThreeDots" color="#3333333" height={80} width={80} /> :

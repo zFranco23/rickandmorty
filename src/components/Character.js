@@ -39,7 +39,7 @@ const useStyles=makeStyles((theme)=>({
     alive:{
         fontSize:"1.5rem",
         position:"absolute",
-        bottom:"2px",
+        bottom:"5px",
         right:"5px",
         fontFamily:"Shlop,Poppins",
         color:"lightgreen",
@@ -47,7 +47,7 @@ const useStyles=makeStyles((theme)=>({
     dead:{
         fontSize:"1.5rem",
         position:"absolute",
-        bottom:"2px",
+        bottom:"5px",
         right:"5px",
         fontFamily:"Shlop,Poppins",
         color:"#cb3234",

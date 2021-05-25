@@ -4,6 +4,7 @@ import {
     Typography,
 } from '@material-ui/core';
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const useStyles=makeStyles((theme)=>({
     appbar:{
@@ -23,6 +24,9 @@ const useStyles=makeStyles((theme)=>({
         [theme.breakpoints.down("xs")]:{
             fontSize:"2rem",
         }
+    },
+    link:{
+        textDecoration:"none",
     }
 }))
 function Appbar() {
@@ -31,9 +35,11 @@ function Appbar() {
     return (
         <div className={classes.appbar}>
             <Toolbar className={classes.toolbar}>
-                <Typography className={classes.title}>
-                    Rick and Morty
-                </Typography>
+                <Link className={classes.link}  to="/">
+                    <Typography className={classes.title}>
+                        Rick and Morty
+                    </Typography>
+                </Link>
             </Toolbar>
         </div>
     )

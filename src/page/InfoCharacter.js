@@ -1,8 +1,9 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react'
 import { useParams } from 'react-router'
+
 import Appbar from '../components/Appbar';
-import Footer from '../components/Footer';
+import CharacterDetails from '../components/CharacterDetails';
 
 
 const useStyles=makeStyles((theme)=>({
@@ -10,17 +11,16 @@ const useStyles=makeStyles((theme)=>({
         minHeight:"100vh",
         display:"flex",
         flexDirection:"column",
-        justifyContent:"space-between",
     }
 }))
 
 function InfoCharacter() {
     const classes=useStyles();
-    const {name}= useParams();
+    const {name,id}= useParams();
     return (
         <div className={classes.root}>
             <Appbar />
-            <Footer />
+            <CharacterDetails id={id} name={name}/>
         </div>
     )
 }
